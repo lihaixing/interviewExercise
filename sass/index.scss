@@ -1,0 +1,290 @@
+@charset "utf-8";
+/* 公共 */
+@import "./subsass/common";
+/* 导航 */
+@import "./subsass/nav";
+/* 首页海报 */
+.box-poster{
+	background:url(../img/bg.jpg) no-repeat;
+	background-size: 100% 100%;
+	color:#FFF;
+	padding-bottom:6rem;
+	.container{
+		margin-top:10.8rem;
+		.h1{
+			font-size:2.3rem;
+			margin-bottom:1.5rem;
+		}
+		.content{
+			font-size:1rem;
+			line-height:2rem;
+		}
+		.box-btn{
+			margin-top:1.5rem;
+			.btn{
+				@include mid-btn(#FFF);
+				margin-right:1rem;
+				margin-bottom:1rem;
+				color:#454545;
+			}
+		}
+	}
+}
+
+/* Features */
+.box-features-wrapper{
+	background:#eef0f1;
+}
+.box-features{
+	position:relative;
+	.item-feature{
+		background:#FFF;
+		width:90%;
+		border-radius:0.2rem;
+		&:hover{
+			box-shadow:0.1rem 0.1rem 1rem rgba(0,0,0,0.08);
+		}
+		padding:1rem 1rem;
+		margin:3% auto;
+		position:relative;
+		min-height:5rem;
+		height:auto;
+		.content{
+			box-sizing:border-box;
+			.h3{
+				margin-top:0;
+			}
+			.para{
+				@include common-font();
+			}
+		}
+		.logo{
+			position:absolute;
+			box-sizing:border-box;
+			width:6rem;
+			top:50%;
+			margin-top:-2.5rem;
+			img{
+				width:5rem;
+				height:5rem;
+			}
+		}
+	}
+
+	.main{
+		>div{
+			position:relative;
+			padding-left:0;
+			padding-right:0;
+			.h-line{
+				position:absolute;
+				height:100%;
+				width:0.05rem;
+				background:#ccc;
+			}
+			.h-point{
+				position:absolute;
+				/* height:100%; */
+				width:1.25rem;
+				height:1.25rem;
+				border-radius:50%;
+				border:0.2rem solid #FFF;
+				background:#34b1c4;
+				top:50%;
+				margin-top:-0.625rem;
+			}
+			.h-triangle{
+				background:#FFF;
+				box-origin:center;
+				width:1rem;
+				height:1rem;
+				position:absolute;
+				top:50%;
+				margin-top:-0.6rem;
+				transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+				-o-transform: rotate(45deg);
+				-moz-transform: rotate(45deg);
+			}
+
+			&:nth-child(2n+1) {
+				.item-feature{
+					.logo{
+						right:1rem;
+					}
+					.content{
+						margin-right:6rem;
+					}
+				}
+				.h-line{
+					right:-0.025rem;
+				}
+				.h-point{
+					right:0;
+					margin-right:-0.625rem;
+				}
+				.h-triangle{
+					right:9%;
+				}
+			}
+
+			&:nth-child(2n) {
+				.item-feature{
+					.logo{
+						left:1rem;
+					}
+					.content{
+						margin-left:6rem;
+					}
+				}
+				.h-line{
+					left:-0.025rem;
+				}
+				.h-point{
+					left:0;
+					margin-left:-0.625rem;
+				}
+				.h-triangle{
+					left:9%;
+				}
+			}
+
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.box-features {
+		.item-feature{
+			width:100%;
+		}
+		.main {
+			>div .h-line,
+			>div .h-point{
+				background:none;
+				border:none;
+			}
+			>div .h-triangle{
+				background:none;
+			}
+		}
+	}
+
+}
+
+/* plans */
+.box-plans{
+	background:#FFF;
+	.container{
+		position:relative;
+		// background:
+		.star{
+			background:#FFF;
+		}
+		.intro{
+			@include common-font();
+			padding-bottom:1rem;
+		}
+		.row{
+			.item-plan{
+				margin-top:1rem;
+				margin-bottom:1rem;
+				background:#f9f9f9;
+				border-radius:0.2rem;
+				overflow:hidden;
+				border:0.05rem solid #CCC;
+				.header{
+					background:#16A085;
+					color:#FFF;
+					padding:0.5rem 0 1rem;
+					.h3{
+						font-size:1.1rem;
+						font-weight:bold;
+					}
+					.h4{
+						font-size:0.8rem;
+						font-weight:bold;
+						.money{
+							font-size:1.8rem;
+						}
+					}
+				}
+				.content{
+					padding:1rem 0;
+					.info{
+						@include common-font();
+					}
+					.btn{
+						width:85%;
+						@include mid-btn(#16A085);
+					}
+				}
+			}
+			>div:nth-child(2){
+				.header{
+					background:#dd624e;
+				}
+				.content .btn{
+					@include mid-btn(#dd624e);
+				}
+			}
+			>div:last-child{
+				.header{
+					background:#34b1c4;
+				}
+				.content .btn{
+					@include mid-btn(#34b1c4);
+				}
+			}
+
+		}
+	}
+}
+
+/* touch */
+.box-touch{
+	background:#393f43;
+	.container{
+		position:relative;
+		.h1{
+			color:#ddd;
+		}
+		.star{
+			background:#393f43;
+			color:#ddd;
+		}
+		.v-line{
+			background:#ddd;
+		}
+		.intro{
+			@include common-font();
+			padding-bottom:1rem;
+			margin-bottom:1rem;
+		}
+		.row{
+			.form-control{
+				border:0.05rem solid #757575;
+				background:transparent;
+				&:focus{
+					outline:none;
+					border-color:#FFF;
+					box-shadow:none;
+				}
+			}
+			textarea{
+				height:8.4rem;
+			}
+		}
+		.btn{
+			@include big-btn(#34b1c4);
+		}
+	}
+}
+/* footer */
+@import "./subsass/footer";
+
+
+
+
+

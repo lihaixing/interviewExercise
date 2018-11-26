@@ -1,0 +1,121 @@
+@charset "utf-8";
+@import "subsass/common";
+
+dl{
+  dd{
+    min-height: 100px;
+    //height: 100px;
+    //overflow: hidden;
+  }
+}
+// 浮动方式
+.floatWrapper {
+  dl {
+    dd:nth-child(1) {
+      float: left;
+      width: 300px;
+      background: red;
+    }
+    dd:nth-child(3) {
+      background: orange;
+    }
+    dd:nth-child(2) {
+      float: right;
+      width: 300px;
+      background: blue;
+    }
+  }
+}
+// 绝对定位
+.absolute {
+  margin-top: 20px;
+  height: 100px;
+  dl {
+    position: relative;
+    dd {
+      position: absolute;
+    }
+    dd:nth-child(1) {
+      left: 0;
+      top: 0;
+      width: 300px;
+      background: red;
+    }
+    dd:nth-child(2) {
+      left: 300px;
+      right: 300px;
+      top: 0;
+      background: orange;
+    }
+    dd:nth-child(3) {
+      right: 0;
+      top: 0;
+      width: 300px;
+      background: blue;
+    }
+  }
+}
+
+// table布局
+.tableLayout {
+  margin-top: 20px;
+  dl {
+    display: table;
+    width: 100%;
+    dd {
+      display: table-cell;
+    }
+    dd:nth-child(1) {
+      width: 300px;
+      background: red;
+    }
+    dd:nth-child(2) {
+      background: orange;
+    }
+    dd:nth-child(3) {
+      width: 300px;
+      background: blue;
+    }
+  }
+}
+
+// flex布局
+.flexLayout {
+  margin-top: 20px;
+  dl {
+    display: flex;
+    width: 100%;
+    align-content: center;
+    dd:nth-child(1) {
+      flex: 0 0 300px;
+      background: red;
+    }
+    dd:nth-child(2) {
+      flex: 1;
+      background: orange;
+    }
+    dd:nth-child(3) {
+      flex: 0 0 300px;
+      background: blue;
+    }
+  }
+}
+
+// grid布局
+.gridLayout {
+  margin-top: 20px;
+  dl {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 300px auto 300px;
+    dd:nth-child(1) {
+      background: red;
+    }
+    dd:nth-child(2) {
+      background: orange;
+    }
+    dd:nth-child(3) {
+      background: blue;
+    }
+  }
+}

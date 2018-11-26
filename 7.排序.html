@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>五种排序</title>
+</head>
+<body>
+<script>
+    function randomArr (n) {
+        let arr = [];
+        for (let i = 1; i <= n; i++) {
+            arr.push(Math.floor(Math.random() * (i + 1)));
+        }
+        return arr;
+    }
+
+    let arr1 = randomArr(50000);
+    let arr2 = [...arr1];
+    let arr3 = [...arr1];
+    let arr4 = [...arr1];
+    let arr5 = [...arr1];
+    let arr6 = [...arr1];
+
+    // 选择排序
+    function pickSort (arr) {
+        let temp;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    // 冒泡排序
+    function bubleSort (arr) {
+        let temp, isSort;
+        for (let i = 1; i < arr.length; i++) {
+            isSort = false;
+            for (let j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    isSort = true;
+                }
+            }
+            if (!isSort) {
+                break;
+            }
+        }
+        return arr;
+    }
+
+    // 快速排序 快速排序方法同时也是递归
+    function quickSort (arr) {
+        if (arr.length <= 1) {
+            return arr;
+        }
+        let x = arr.splice(0, 1)[0];
+        let left = [], right = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < x) {
+                left.push(arr[i]);
+            } else {
+                right.push(arr[i]);
+            }
+        }
+        return quickSort(left).concat([x]).concat(quickSort(right));
+    }
+
+    // 插入排序
+    function spliceSort (arr) {
+        let temp;
+        for (let i = 1; i < arr.length; i++) {
+            for (let j = i; j > 0; j--) {
+                if (arr[j] < arr[j - 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                } else {
+                    break
+                }
+            }
+        }
+        return arr;
+    }
+
+    // 希尔排序
+    function shellSort (arr) {
+        let temp;
+        let gap = 1;
+        while (gap < arr.length) {
+            gap = 3 * gap + 1;
+        }
+        for (; gap > 0; gap = Math.floor(gap / 3)) {
+            for (let i = gap; i < arr.length; i ++) {
+                for (let j = i; j > 0; j -= gap) {
+                    if (arr[j] < arr[j - gap]) {
+                        temp = arr[j];
+                        arr[j] = arr[j - gap];
+                        arr[j - gap] = temp;
+                    } else {
+                        break
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+
+    function calcTime (arr, fun) {
+        console.time(fun.name);
+        let newArr = fun(arr);
+        console.timeEnd(fun.name);
+        // console.log(newArr);
+    }
+    calcTime(arr1,bubleSort);
+    calcTime(arr2,quickSort);
+    calcTime(arr3,pickSort);
+    calcTime(arr4,spliceSort);
+    calcTime(arr5,shellSort);
+
+    // 看下数组中排序
+    console.time('Array.prototype.sort');
+    arr6.sort(function (a,b) {
+        return a-b;
+    });
+    console.timeEnd('Array.prototype.sort');
+    // console.log(arr6);
+</script>
+</body>
+</html>

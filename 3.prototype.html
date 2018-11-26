@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型相关</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
+</head>
+<body>
+
+<script>
+    // 1.创建对象的三种方法
+    // method1
+    var o1 = {a: 1};
+    var o2 = new Object({a: 1})
+
+    // method2
+    function M (name) {
+        this.name = name;
+    }
+
+    var o3 = new M('LHX');
+
+    // method3
+    var o4 = Object.create({'name': 'LHX'});
+    console.log(o1, o2, o3, o4);
+
+    function X () {
+    }
+
+    // new 运算符原理
+    function NEW (M, paras) {
+        let o = Object.create(M.prototype);
+        let k = M.call(o, paras);
+        if (typeof k === 'object') {
+            return k;
+        } else {
+            return o;
+        }
+    }
+
+    console.log(NEW(M, 'haixing'));
+    console.log(NEW(X, 'haixing'));
+</script>
+</body>
+</html>

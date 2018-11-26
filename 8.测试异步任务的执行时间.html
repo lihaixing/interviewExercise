@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试异步任务的执行时间</title>
+    <script src="./lib/bootstrap/js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<img id="myimg" src="../a.png" alt="">
+<!--<script id="jsTag" src="good" onerror="console.log(7)"></script>-->
+<script crossorigin="anonymous">
+    function randomArr (n) {
+        let arr = [];
+        for (let i = 1; i <= n; i++) {
+            arr.push(Math.floor(Math.random() * (i + 1)));
+        }
+        return arr;
+    }
+
+    let arr1 = randomArr(500);
+
+    // 冒泡排序
+    function bubleSort (arr) {
+        let temp, isSort;
+        for (let i = 1; i < arr.length; i++) {
+            isSort = false;
+            for (let j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    isSort = true;
+                }
+            }
+            if (!isSort) {
+                break;
+            }
+        }
+        return arr;
+    }
+
+    // setTimeout(function () {
+    //     console.log(1);
+    // }, 5000);
+    // console.log('开始排序');
+    // bubleSort(arr1);
+    // console.log('排序结束');
+
+    // window.addEventListener('error', function (e) {
+    //     console.log(e)
+    // }, false);
+    window.onerror=function(e){
+        console.log(e)
+    }
+    // try {
+    //     alert(a);
+    // } catch (e) {
+    //     console.log(e)
+    // }
+    // console.log(10)
+
+    // 资源加载错误捕获
+    // document.getElementById('myimg').onerror = function (e) {
+    //     console.log(e)
+    // }
+    $.get('https://segmentfault.com/p/1210000011309097',function(res){
+        console.log(res)
+    })
+
+
+</script>
+
+</body>
+</html>

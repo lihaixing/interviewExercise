@@ -1,0 +1,41 @@
+@charset "UTF-8";
+section.fixed {
+  background: red;
+  color: #FFF;
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  height: calc((100vw - 20px) / 2);
+  top: calc(50% - 25vw + 5px );
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+/* 公共代码 */
+.wp {
+  border: 1px solid red;
+  width: 300px;
+  height: 300px;
+}
+
+.box {
+  background: green;
+}
+
+.box.size {
+  width: 100px;
+  height: 100px;
+}
+
+.wp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=12.%C7%D0%CD%BC.css.map */

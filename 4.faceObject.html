@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>继承</title>
+</head>
+<body>
+<script>
+    // 类的声明 2种方法
+    // 第一种就是构造函数 无需多讲
+    // 第二种es6
+    class F {
+        constructor (name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        say () {
+            console.log('say Hello')
+        }
+    }
+
+    let f = new F('haixing', 30);
+
+    // method1
+    function P1 () {
+        this.ages = [12, 33, 23];
+        this.year = 2003;
+    }
+
+    P1.prototype.say = function () {
+        console.log('say Hello')
+    };
+
+    function S1 () {
+        P1.call(this);
+        this.name = 'haixing'
+    }
+
+    let o11 = new S1();
+    let o12 = new S1();
+
+    // method2
+    function P2 () {
+        this.ages = [12, 33, 23];
+        this.year = 2003;
+    }
+
+    P2.prototype.say = function () {
+        console.log('say Hello')
+    };
+
+    function S2 () {
+        this.name = 'haixing'
+    }
+
+    S2.prototype = new P2();
+
+    let o21 = new S2();
+    let o22 = new S2();
+
+    // method3
+    function P3 () {
+        this.ages = [12, 33, 23];
+        this.year = 2003;
+    }
+
+    P3.prototype.say = function () {
+        console.log('say Hello')
+    };
+
+    function S3 () {
+        P3.call(this)
+        this.name = 'haixing'
+    }
+
+    S3.prototype = new P3();
+
+    let o31 = new S3();
+    let o32 = new S3();
+
+    // method4
+    function P4 () {
+        this.ages = [12, 33, 23];
+        this.year = 2003;
+    }
+
+    P4.prototype.say = function () {
+        console.log('say Hello')
+    };
+
+    function S4 () {
+        P4.call(this)
+        this.name = 'haixing'
+    }
+
+    S4.prototype = P4.prototype;
+
+    let o41 = new S4();
+    let o42 = new S4();
+
+    // method5
+    function P5 () {
+        this.ages = [12, 33, 23];
+        this.year = 2003;
+    }
+
+    P5.prototype.say = function () {
+        console.log('say Hello')
+    };
+
+    function S5 () {
+        P5.call(this)
+        this.name = 'haixing'
+    }
+
+    S5.prototype = Object.create(P5.prototype);
+    S5.prototype.constructor = S5;
+
+    let o51 = new S5();
+    let o52 = new S5();
+</script>
+</body>
+</html>

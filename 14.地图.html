@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="./css/14.地图.css">
+    <script src=""></script>
+</head>
+<body>
+<section id="container">
+
+</section>
+<script>
+    function initialize () {
+        var map = new BMap.Map('container');
+        var point = new BMap.Point(116.404, 39.915);
+        map.centerAndZoom(point, 15);
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+        // 添加各种控件
+        map.addControl(new BMap.NavigationControl());
+        map.addControl(new BMap.ScaleControl());
+        map.addControl(new BMap.OverviewMapControl());
+        map.addControl(new BMap.MapTypeControl());
+        map.setCurrentCity("西安"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
+    }
+
+    function loadScript () {
+        var script = document.createElement("script");
+        script.src = "http://api.map.baidu.com/api?v=2.0&ak=rEb6CavSCNxuFpOO6al7xMyLKCIAjpR0&callback=initialize";
+        document.body.appendChild(script);
+    }
+
+    window.onload = loadScript;
+</script>
+<script>
+    var a = 1;
+
+    function A () {
+        a=2;
+        return function (){
+            console.log(a)
+        }
+    }
+
+
+    console.log(window.a)
+    console.log(window.b)
+
+    var obj1 = new Promise(function(resolve, reject){
+        setTimeout(function(){
+            resolve();
+            console.log(1);
+        })
+
+    });
+    console.log('hello world')
+    obj1.then(function () {
+        console.log(2);
+        // return obj1
+    })
+    obj1.then(function () {
+        console.log(3)
+    }).catch(function(e){
+        console.log('falure')
+    })
+</script>
+
+</body>
+</html>

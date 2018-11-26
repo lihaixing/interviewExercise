@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水平测试</title>
+    <link rel="stylesheet" href="./css/水平测试.css">
+</head>
+<body>
+<h1>一、布局</h1>
+<!--浮动布局-->
+<dl class="floatWrapper">
+    <dd class="left">你呀你</dd>
+    <dd class="right">你呀你</dd>
+    <dd class="center">
+        你呀你
+        你呀你<br>
+    </dd>
+</dl>
+<!--绝对定位布局-->
+<dl class="absoluteWrapper">
+    <dd class="left">你呀你</dd>
+    <dd class="center">
+        你呀你<br>
+        你呀你<br>
+    </dd>
+    <dd class="right">你呀你</dd>
+</dl>
+<!--table布局-->
+<dl class="tableWrapper">
+    <dd class="left">你呀你</dd>
+    <dd class="center">
+        你呀你<br>
+        你呀你<br>
+    </dd>
+    <dd class="right">你呀你</dd>
+</dl>
+<!--flex布局-->
+<dl class="flexWrapper">
+    <dd class="left">你呀你</dd>
+    <dd class="center">
+        你呀你<br>
+        你呀你<br>
+    </dd>
+    <dd class="right">你呀你</dd>
+</dl>
+<!--grid-->
+<dl class="gridWrapper">
+    <dd class="left">你呀你</dd>
+    <dd class="center">
+        你呀你<br>
+        你呀你<br>
+    </dd>
+    <dd class="right">你呀你</dd>
+</dl>
+<h1>二、事件</h1>
+<h1>三、事件委托</h1>
+<ul class="evtBox">
+    <li>
+        <p>list1</p>
+        <span class="del">&times;</span>
+    </li>
+    <li>
+        <p>list2</p>
+        <span class="del">&times;</span>
+    </li>
+    <li>
+        <p>list3</p>
+        <span class="del">&times;</span>
+    </li>
+</ul>
+<script>
+    let ev = new CustomEvent('myEvent', {
+        detail: {
+            name: 'haixing'
+        },
+        bubbles: true
+    })
+    window.addEventListener('myEvent', function (e) {
+        e.stopImmediatePropagation()
+        console.log('事件促发了');
+    });
+    window.dispatchEvent(ev)
+
+    class List {
+        constructor (el) {
+            let els = this.els = Array.from(document.querySelectorAll(el));
+            let self = this;
+            els.forEach((item) => {
+                item.addEventListener('click', (e) => {
+                    if (e.target.className.indexOf('del') !== -1) {
+                        self.removeItem(item, e.target);
+                    }
+                })
+            })
+        }
+
+        removeItem (item, target) {
+            item.removeChild(target.parentNode);
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        new List('.evtBox');
+    });
+
+    // NEW运算符
+    function M (name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    M.prototype.sayYear = () => {
+        console.log('2018');
+    }
+
+    function NEW () {
+        // 获取参数
+        let func = arguments[0]; // 构造函数
+        let paras = [].slice.call(arguments, 1); // 传入的参数
+        // 继承func.prototype的属性
+        let o = Object.create(func.prototype);
+        // 继承构造函数中的属性
+        func.call(o, ...paras);
+        return o;
+    }
+
+    let m = NEW(M, 'haixing', 30);
+    let mm = new M('haixing', 30);
+
+
+    // bind
+    Function.prototype.BIND = function () {
+        let self = this;
+        let paras = arguments;
+        return function () {
+            self.call(...paras);
+        }
+    };
+    let c = {};
+    let cc = {};
+    M.BIND(c, 'haixing', 31)();
+    M.bind(cc, 'haixing', 31)();
+
+    function A (name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    let d = new A('haixi', 22);
+    let dd = new A('haixi', 22);
+    M.BIND(d, 'haixing', 31)();
+    M.bind(dd, 'haixing', 31)();
+
+    // object.create
+    Object.CREATE = function (obj, properties) {
+        function F () {
+        }
+
+        F.prototype = obj;
+        let o = new F();
+        // 注意Object.create可以传入第二个参数，是一个对象，但格式必须是Object.defineProperties()方法一样
+        if (typeof properties === 'object') {
+            Object.defineProperties(o, properties);
+        }
+        return o;
+    }
+    let e = Object.create(d, {year: {value: 2019}});
+    let ee = Object.CREATE(d, {year: {value: 2019}});
+
+</script>
+<script>
+    // 继承
+    function M () {
+        this.name = 'haixing';
+        this.age = 30;
+    }
+
+    M.prototype.say = function () {
+        console.log('haixing30');
+    }
+
+    function N () {
+        M.call(this)
+    }
+
+    N.prototype = M.prototype;
+    // N.prototype = Object.create(M.prototype);
+    // N.prototype.constructor = N;
+    let n = new N();
+</script>
+<script>
+    // 排序
+    function createArray (n) {
+        let arr = [];
+        for (let i = 1; i <= n; i++) {
+            arr.push(Math.floor(Math.random() * n));
+        }
+        return arr;
+    }
+
+    let arr1 = createArray(50);
+
+    // 冒泡
+    function buble (arr) {
+        let len = arr.length;
+        let temp;
+        for (let i = 0; i < len - 1; i++) {
+            for (let j = 1; j < len - i; j++) {
+                if (arr[j] < arr[j - 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    // 选择
+    function pick (arr) {
+        let len = arr.length;
+        let temp;
+        for (let i = 0; i < len - 1; i++) {
+            for (let j = i + 1; j < len; j++) {
+                if (arr[j] < arr[i]) {
+                    temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    // 快速
+    function quick (arr) {
+        if (arr.length <= 1) {
+            return arr;
+        }
+        let center = arr.splice(0, 1)[0];
+        let left = [], right = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > center) {
+                right.push(arr[i]);
+            } else {
+                left.push(arr[i]);
+            }
+        }
+        return pick(left).concat([center]).concat(pick(right));
+    }
+
+    // 插入
+    function insert (arr) {
+        let len = arr.length;
+        let temp;
+        for (let i = 1; i < len; i++) {
+            for (let j = i; j >= 0; j--) {
+                if (arr[j] < arr[j - 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                } else {
+                    break;
+                }
+            }
+        }
+        return arr;
+    }
+
+    // 希尔排序
+    function shell (arr) {
+        let len = arr.length;
+        let temp;
+        let gap = 1;
+        while (gap < arr.length) {
+            gap = 3 * gap + 1;
+        }
+        for (; gap >= 1; gap = Math.floor(gap / 3)) {
+            for (let i = gap; i < len; i++) {
+                for (let j = i; j >= 0; j -= gap) {
+                    if (arr[j] < arr[j - 1]) {
+                        temp = arr[j];
+                        arr[j] = arr[j - 1];
+                        arr[j - 1] = temp;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+
+    console.log(shell(arr1))
+</script>
+<script>
+    // 排序
+    function createArray (n) {
+        let arr = [];
+        for (let i = 1; i <= n; i++) {
+            arr.push(Math.floor(Math.random() * n));
+        }
+        return arr;
+    }
+
+    let arr2 = createArray(30);
+
+    // 去重
+    function unique1 (arr) {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[i] === arr[j]) {
+                    j = ++i;
+                }
+            }
+            newArr.push(arr[i]);
+        }
+        return newArr;
+    }
+
+    function unique2 (arr) {
+        let len = arr.length;
+        for (let i = 0; i < len; i++) {
+            for (let j = i + 1; j < len; j++) {
+                if (arr[i] === arr[j]) {
+                    arr.splice(j, 1);
+                    len--;
+                    if (j === i + 1) {
+                        j--;
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+
+    function unique3 (arr) {
+        let o = {};
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (!o[arr[i]]) {
+                o[arr[i]] = 1;
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    }
+
+    function unique4 (arr) {
+        let newArr = [];
+        // for (let i = 0; i < arr.length; i++) {
+        //     if (newArr.indexOf(arr[i]) === -1) {
+        //         newArr.push(arr[i]);
+        //     }
+        // }
+        arr.forEach(function (item, index, array) {
+            if (array.indexOf(item, index + 1) === -1) {
+                newArr.push(item);
+            }
+        })
+        return newArr;
+    }
+
+    console.log(unique4(arr2));
+</script>
+
+
+<input width="300" id="fileEle" type="file" multiple>
+<script>
+    var file = document.getElementById('fileEle');
+    file.addEventListener('change', function (e) {
+        console.log(file.files);
+    })
+
+    var a = 2;
+    var obj = {
+        a: 1,
+        func1: () => {
+            console.log('func1:' + this.a);
+        },
+        func2: function () {
+            console.log('func2:' + this.a)
+        }
+    }
+
+    function A () {
+        a = 6;
+        var b = () => {
+            console.log('b:' + this.a);
+        }
+        b();
+    }
+
+    var obj2 = {
+        a: 3
+    }
+    obj.func1(); //2
+    obj.func2(); //1
+    obj.func1.call(obj2); //2
+    obj.func2.call(obj2); //3
+    A();
+</script>
+</body>
+</html>

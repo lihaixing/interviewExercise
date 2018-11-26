@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue生命周期</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <style>
+        #app {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<section id="app">
+    <div>{{name}}</div>
+    <div>{{age}}</div>
+</section>
+<script>
+    let myVue = new Vue({
+        el: '#app',
+        data: {
+            name: 'haixing',
+            age: 20
+        },
+        beforeCreate () {
+            // new Vue实例完成，还没解析数据
+            console.log(this.$el);
+            console.log(this.$data);
+            debugger;
+        },
+        created () {
+            // new Vue实例已经创建，数据解析完成，el和模板还没解析
+            console.log(this.$el);
+            console.log(this.$data);
+            debugger;
+        },
+        beforeMount () {
+            // el和模板解析完成，开始渲染 如果没有el,就不往下执行了
+            console.log('渲染之前')
+            console.log(this.$el);
+            console.log(this.$data);
+            debugger;
+        },
+        mounted () {
+            // 渲染完成
+            console.log('渲染完成')
+            debugger;
+        },
+        beforeUpdate () {
+            console.log('更新之前')
+            debugger;
+        },
+        updated () {
+            console.log('更新完成')
+            debugger;
+        },
+        beforeDestroy () {
+            console.log('销毁之前')
+            debugger;
+        },
+        destroyed () {
+            console.log('销毁完成')
+            debugger;
+        }
+    });
+    // 注意：执行vm.$mount()时，由于没有el, 会经历beforeMount beforeUpdate mounted
+    // 注意：执行vm.$data.age = 30时，会经历beforeUpdate updated
+    // 注意：执行vm.$destory()时，会经历beforeDestroy destroyed
+</script>
+</body>
+</html>

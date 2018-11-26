@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.floatWrapper .left {
+  width: 300px;
+  float: left;
+  background: orange;
+}
+.floatWrapper .right {
+  width: 300px;
+  float: right;
+  background: green;
+}
+.floatWrapper .center {
+  background: blue;
+  overflow: hidden;
+}
+
+.absoluteWrapper {
+  position: relative;
+  margin-top: 10px;
+}
+.absoluteWrapper .left {
+  width: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: orange;
+}
+.absoluteWrapper .right {
+  width: 300px;
+  background: green;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.absoluteWrapper .center {
+  background: blue;
+  overflow: hidden;
+  position: absolute;
+  left: 300px;
+  right: 300px;
+  top: 0;
+}
+
+.tableWrapper {
+  margin-top: 120px;
+  display: table;
+  width: 100%;
+}
+.tableWrapper dd {
+  display: table-cell;
+}
+.tableWrapper .left {
+  width: 300px;
+  background: orange;
+}
+.tableWrapper .right {
+  width: 300px;
+  background: green;
+}
+.tableWrapper .center {
+  background: blue;
+  overflow: hidden;
+}
+
+.flexWrapper {
+  margin-top: 10px;
+  display: flex;
+}
+.flexWrapper .left {
+  flex: 0 0 300px;
+  background: orange;
+}
+.flexWrapper .right {
+  flex: 0 0 300px;
+  background: green;
+}
+.flexWrapper .center {
+  background: blue;
+  flex: 1;
+}
+
+.gridWrapper {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 300px auto 300px;
+}
+.gridWrapper .left {
+  background: orange;
+  display: flex;
+  align-items: center;
+}
+.gridWrapper .right {
+  background: green;
+}
+.gridWrapper .center {
+  background: blue;
+}
+
+.evtBox {
+  background: orange;
+  overflow: hidden;
+  font-size: 20px;
+}
+.evtBox li {
+  background: blue;
+  margin: 20px;
+  display: flex;
+  height: 50px;
+}
+.evtBox li p {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+.evtBox li .del {
+  flex: 0 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=%CB%AE%C6%BD%B2%E2%CA%D4.css.map */

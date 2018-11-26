@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        dl {
+            display: flex;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #0f0f0f;
+        }
+
+        dl dd {
+            display: flex;
+            width: 0;
+            height: 100%;
+            background: green;
+            overflow: hidden;
+        }
+
+        dl dd.active {
+            width:100%;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<dl>
+    <dd class="active">1</dd>
+    <dd>2</dd>
+    <dd>3</dd>
+</dl>
+<script>
+    let i = 0;
+
+    function show (i) {
+        let dds = document.querySelectorAll('dl dd');
+        [].map.call(dds, item => {
+            item.className = '';
+        });
+        dds[i].className = 'active';
+    }
+
+    setInterval(function () {
+        i = i === 3 ? 0 : i;
+        show(i);
+        i++;
+    }, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 125%;
+  color: #858585;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.h1 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.v-line {
+  height: 0.025rem;
+  width: 8rem;
+  background: #34b1c4;
+  position: relative;
+  left: 50%;
+  margin-left: -4rem;
+  margin-bottom: 2rem;
+}
+
+.star {
+  position: absolute;
+  color: #34b1c4;
+  top: -0.3rem;
+  left: 50%;
+  margin-left: -0.5rem;
+  background: #eef0f1;
+  width: 1rem;
+}
+
+.item-fluid {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+dl dd {
+  min-height: 100px;
+}
+
+.floatWrapper dl dd:nth-child(1) {
+  float: left;
+  width: 300px;
+  background: red;
+}
+.floatWrapper dl dd:nth-child(3) {
+  background: orange;
+}
+.floatWrapper dl dd:nth-child(2) {
+  float: right;
+  width: 300px;
+  background: blue;
+}
+
+.absolute {
+  margin-top: 20px;
+  height: 100px;
+}
+.absolute dl {
+  position: relative;
+}
+.absolute dl dd {
+  position: absolute;
+}
+.absolute dl dd:nth-child(1) {
+  left: 0;
+  top: 0;
+  width: 300px;
+  background: red;
+}
+.absolute dl dd:nth-child(2) {
+  left: 300px;
+  right: 300px;
+  top: 0;
+  background: orange;
+}
+.absolute dl dd:nth-child(3) {
+  right: 0;
+  top: 0;
+  width: 300px;
+  background: blue;
+}
+
+.tableLayout {
+  margin-top: 20px;
+}
+.tableLayout dl {
+  display: table;
+  width: 100%;
+}
+.tableLayout dl dd {
+  display: table-cell;
+}
+.tableLayout dl dd:nth-child(1) {
+  width: 300px;
+  background: red;
+}
+.tableLayout dl dd:nth-child(2) {
+  background: orange;
+}
+.tableLayout dl dd:nth-child(3) {
+  width: 300px;
+  background: blue;
+}
+
+.flexLayout {
+  margin-top: 20px;
+}
+.flexLayout dl {
+  display: flex;
+  width: 100%;
+  align-content: center;
+}
+.flexLayout dl dd:nth-child(1) {
+  flex: 0 0 300px;
+  background: red;
+}
+.flexLayout dl dd:nth-child(2) {
+  flex: 1;
+  background: orange;
+}
+.flexLayout dl dd:nth-child(3) {
+  flex: 0 0 300px;
+  background: blue;
+}
+
+.gridLayout {
+  margin-top: 20px;
+}
+.gridLayout dl {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 300px auto 300px;
+}
+.gridLayout dl dd:nth-child(1) {
+  background: red;
+}
+.gridLayout dl dd:nth-child(2) {
+  background: orange;
+}
+.gridLayout dl dd:nth-child(3) {
+  background: blue;
+}
+
+/*# sourceMappingURL=1.layout.css.map */

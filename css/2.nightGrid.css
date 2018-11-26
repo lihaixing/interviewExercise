@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 125%;
+  color: #858585;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.h1 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.v-line {
+  height: 0.025rem;
+  width: 8rem;
+  background: #34b1c4;
+  position: relative;
+  left: 50%;
+  margin-left: -4rem;
+  margin-bottom: 2rem;
+}
+
+.star {
+  position: absolute;
+  color: #34b1c4;
+  top: -0.3rem;
+  left: 50%;
+  margin-left: -0.5rem;
+  background: #eef0f1;
+  width: 1rem;
+}
+
+.item-fluid {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+dl dd {
+  text-align: center;
+  border: 1px solid red;
+  box-sizing: border-box;
+  margin-left: -1px;
+  margin-top: -1px;
+}
+
+.felxLayout {
+  margin-top: 11px;
+  margin-left: 11px;
+}
+.felxLayout dl {
+  display: flex;
+  width: 300px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.felxLayout dl dd {
+  flex: 0 0 100px;
+  height: 100px;
+  line-height: 100px;
+}
+.felxLayout dl dd:hover {
+  border-color: blue;
+  z-index: 2;
+}
+
+.gridLayout {
+  margin-top: 11px;
+  margin-left: 11px;
+}
+.gridLayout dl {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+}
+.gridLayout dl dd {
+  line-height: 100px;
+}
+.gridLayout dl dd:hover {
+  border-color: blue;
+  z-index: 2;
+}
+
+/*# sourceMappingURL=2.nightGrid.css.map */

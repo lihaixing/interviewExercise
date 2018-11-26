@@ -1,0 +1,97 @@
+@import "../css/demo1.css";
+@font-face {
+  font-family: 'sell-font';
+  src: url('../fonts/sell-font.eot?waq3tl');
+  src: url('../fonts/sell-font.eot?waq3tl#iefix') format('embedded-opentype'),
+  url('../fonts/sell-font.ttf?waq3tl') format('truetype'),
+  url('../fonts/sell-font.woff?waq3tl') format('woff'),
+  url('../fonts/sell-font.svg?waq3tl#sell-font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'sell-font' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add_circle:before {
+  content: "\e900";
+}
+
+.icon-arrow_lift:before {
+  content: "\e901";
+}
+
+.icon-check_circle:before {
+  content: "\e902";
+}
+
+.icon-close:before {
+  content: "\e903";
+}
+
+.icon-favorite:before {
+  content: "\e904";
+}
+
+.icon-keyboard_arrow_right:before {
+  content: "\e905";
+}
+
+.icon-remove_circle_outline:before {
+  content: "\e906";
+}
+
+.icon-shopping_cart:before {
+  content: "\e907";
+}
+
+.icon-thumb_down:before {
+  content: "\e908";
+}
+
+.icon-thumb_up:before {
+  content: "\e909";
+}
+
+body {
+  font-size: 50px;
+  color: green;
+  display: flex;
+  section {
+    width: 100%;
+  }
+  .book {
+    color: red;
+  }
+  .imgWrapper {
+    >div{
+      width:300px;
+      height: 150px;
+      border-radius:5px;
+    }
+    .img1 {
+      background: url(../img/1.png) no-repeat;
+      background-size:cover;
+    }
+    .img2 {
+      background: url(../img/2.png) no-repeat;
+      background-size:cover;
+    }
+    .img3 {
+      background: url(../img/3.png) no-repeat;
+      background-size:cover;
+    }
+  }
+}

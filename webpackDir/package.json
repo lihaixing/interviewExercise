@@ -1,0 +1,51 @@
+{
+  "name": "webpackdir",
+  "version": "1.0.0",
+  "description": "webpack练习项目",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "jquery": "^3.3.1",
+    "lodash-es": "^4.17.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.1",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "autoprefixer": "^9.1.5",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^2.0.0",
+    "glob-all": "^3.1.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-inline-chunk-plugin": "^1.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "img-loader": "^3.0.0",
+    "node-sass": "^4.9.3",
+    "postcss": "^7.0.2",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-sprites": "^4.2.1",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "url-loader": "^1.1.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "n"
+  },
+  "author": "LHX",
+  "license": "ISC"
+}

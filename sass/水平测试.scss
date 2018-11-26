@@ -1,0 +1,140 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+}
+
+// 浮动
+.floatWrapper {
+  .left {
+    width: 300px;
+    float: left;
+    background: orange;
+  }
+  .right {
+    width: 300px;
+    float: right;
+    background: green;
+  }
+  .center {
+    background: blue;
+    overflow: hidden;
+  }
+}
+
+// 绝对定位
+.absoluteWrapper {
+  position: relative;
+  margin-top: 10px;
+  .left {
+    width: 300px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: orange;
+  }
+  .right {
+    width: 300px;
+    background: green;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .center {
+    background: blue;
+    overflow: hidden;
+    position: absolute;
+    left: 300px;
+    right: 300px;
+    top: 0;
+  }
+}
+
+// table
+.tableWrapper {
+  margin-top: 120px;
+  display: table;
+  width: 100%;
+  dd {
+    display: table-cell;
+  }
+  .left {
+    width: 300px;
+    background: orange;
+  }
+  .right {
+    width: 300px;
+    background: green;
+  }
+  .center {
+    background: blue;
+    overflow: hidden;
+  }
+}
+
+// flex
+.flexWrapper {
+  margin-top: 10px;
+  display: flex;
+  .left {
+    flex: 0 0 300px;
+    background: orange;
+  }
+  .right {
+    flex: 0 0 300px;
+    background: green;
+  }
+  .center {
+    background: blue;
+    flex: 1;
+  }
+}
+
+// gridWrapper
+.gridWrapper {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 300px auto 300px;
+  .left {
+    background: orange;
+    display: flex;
+    align-items: center;
+  }
+  .right {
+    background: green;
+  }
+  .center {
+    background: blue;
+  }
+}
+
+// 事件捕获
+.evtBox {
+  background: orange;
+  overflow: hidden;
+  font-size:20px;
+  li {
+    background: blue;
+    margin: 20px;
+    display: flex;
+    height:50px;
+    p {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding:0 10px;
+    }
+    .del {
+      flex: 0 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+}

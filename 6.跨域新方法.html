@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域新方法</title>
+    <style>
+        iframe {
+            border: 1px solid #ccc;
+            width: 50%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+<!--<iframe src="http://192.168.1.2/8080/interviewExercise/2.nightGrid.html" frameborder="0"></iframe>-->
+<!--<iframe src="http://192.168.1.2:8990/#/" frameborder="0"></iframe>-->
+<script>
+    // hash实现跨域请求
+    var iframe = document.getElementsByTagName('iframe')[0];
+    // setTimeout(function(){
+    //     iframe.src = 'http://192.168.1.2:8990/#/#good'
+    // },1000);
+
+    // postMessage方法
+    // setTimeout(function(){
+        // iframe.contentWindow.postMessage('这不是跨域','http://192.168.1.2/8080/interviewExercise/2.nightGrid.html');
+        // iframe.contentWindow.postMessage('这是跨域传递','http://192.168.1.2:8990/#/');
+    // },1000);
+
+    var postM = window.open('http://192.168.1.2:8990/#/','target');
+    setTimeout(function(){
+        postM.postMessage('这不是iframe的跨域','http://192.168.1.2:8990/#/');
+    },1000);
+
+</script>
+</body>
+</html>

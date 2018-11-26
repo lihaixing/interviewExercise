@@ -1,0 +1,39 @@
+//@charset "utf-8";
+.box-form{
+	width:20rem;
+	background:#FFF;
+	margin:10% auto 0;
+	padding-bottom:1rem;
+	.h1{
+		font-weight: 200;
+		margin-top: 1rem;
+		padding-top: 2rem;
+		color:rgba(0, 0, 0, 0.87);
+	}
+
+	form{
+		margin:0 1rem;
+		border-bottom:0.05rem solid #ccc;
+		padding-bottom:1rem;
+		.form-group{
+			width:80%;
+			input{
+				@include login-input();
+			}
+		}
+		.btn{
+			@include login-btn(rgb(0, 188, 212));
+		}
+	}
+	.notice{
+		width:90%;
+		margin:1rem auto;
+	}
+	.box-btn{
+		width:90%;
+		margin:0 auto;
+		.btn-login{
+			@include login-btn(rgb(255, 64, 129));
+		}
+	}
+}

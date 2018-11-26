@@ -1,0 +1,9 @@
+$(function(){
+	$(window).scroll(function(){
+		if($(window).scrollTop()>0){
+			$('.box_navbar').addClass('scroll_in');
+		}else{
+			$('.box_navbar').removeClass('scroll_in');
+		}
+	});
+});

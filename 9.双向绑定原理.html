@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定原理Object.defineProperty</title>
+</head>
+<body>
+<script>
+    let obj = {};
+    Object.defineProperty(obj, 'name', {
+        configurable: true,
+        enumerable: true,
+        // writable: true,
+        // value: 'haixing',
+        get () {
+            console.log('获取');
+            return this.value;
+        },
+        set (value) {
+            this.value = value;
+            console.log('设置');
+        }
+    });
+</script>
+</body>
+</html>

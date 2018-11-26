@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/12.切图.css">
+</head>
+<body>
+<!--<section class="fixed">-->
+    <!--A-->
+<!--</section>-->
+<div class="wp">
+    <div class="box">
+        123123
+        <div>你丫丫</div>
+    </div>
+    <div>呵呵</div>
+</div>
+<script>
+    function Animal (name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Animal.prototype.say = function () {
+        console.log('wangwang')
+    };
+
+    function A () {
+
+    }
+
+    var obj = new A();
+    var obj2 = new A();
+    Function.prototype.BIND = function () {
+        let self = this;
+        let context = arguments[0];
+        let paras = Array.prototype.slice.call(arguments, 1);
+        return function () {
+            self.call(context, ...paras);
+        }
+    };
+    Animal.bind(obj, 'haixing', 23)();
+    Animal.BIND(obj2, 'haixing', 23)();
+
+    let obj3 = Object.create(obj, {year: {value: 2018}});
+
+    Object.Create = function (obj, property) {
+        function F () {
+        }
+
+        F.prototype = obj;
+        let o = new F();
+        console.log(F.prototype.constructor)
+        Object.defineProperties(o, property);
+        return o;
+    }
+    let obj4 = Object.Create(obj, {year: {value: 2018}});
+</script>
+</body>
+</html>

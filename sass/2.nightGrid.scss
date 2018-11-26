@@ -1,0 +1,49 @@
+@charset "utf-8";
+@import "subsass/common";
+dl{
+  dd{
+    //width: 100px;
+    //height: 100px;
+    text-align: center;
+    border: 1px solid red;
+    box-sizing: border-box;
+    margin-left: -1px;
+    margin-top: -1px;
+  }
+}
+.felxLayout{
+  margin-top: 11px;
+  margin-left: 11px;
+
+  dl{
+    display: flex;
+    width: 300px;
+    flex-wrap: wrap;
+    align-items: center;
+    dd{
+      flex: 0 0 100px;
+      height: 100px;
+      line-height: 100px;
+      &:hover{
+        border-color: blue;
+        z-index: 2;
+      }
+    }
+  }
+}
+.gridLayout {
+  margin-top: 11px;
+  margin-left: 11px;
+  dl {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    dd {
+      line-height: 100px;
+      &:hover {
+        border-color: blue;
+        z-index: 2;
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件代理</title>
+    <link rel="stylesheet" href="./css/11.事件代理.css">
+</head>
+<body>
+<ul>
+    <li>
+        <div>子元素1</div>
+        <span class="del">&times;</span>
+    </li>
+    <li>
+        <div>子元素2</div>
+        <span class="del">&times;</span>
+    </li>
+    <li>
+        <div>子元素3</div>
+        <span class="del">&times;</span>
+    </li>
+    <li>
+        <div>子元素4</div>
+        <span class="del">&times;</span>
+    </li>
+</ul>
+<script>
+    // let ul = document.querySelector('ul');
+    // ul.addEventListener('click', function (e) {
+    //     if (e.target.tagName.toLowerCase() === 'span') {
+    //         this.removeChild(e.target.parentNode)
+    //     }
+    // });
+
+    // es6
+    class List {
+        constructor () {
+            this.el = document.querySelector('ul');
+            let self = this;
+            this.el.addEventListener('click', (e) => {
+                self.removeItem(e.target);
+            })
+        }
+
+        removeItem (target) {
+            if (target.className.indexOf('del') !== -1) {
+                this.el.removeChild(target.parentNode);
+            }
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => new List());
+</script>
+</body>
+</html>
